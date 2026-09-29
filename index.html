@@ -3793,9 +3793,12 @@
           "jkzpw.com",
           "009696.com",
         ];
-        const randomName =
-          whiteNames[Math.floor(Math.random() * whiteNames.length)];
-        window.location.href = `https://${randomName}`;
+
+        const randomName = whiteNames[Math.floor(Math.random() * whiteNames.length)];
+        const url = new URL(`https://${randomName}`);
+        url.searchParams.set('_t', Date.now().toString());
+
+        window.location.href = url.toString();
       }
       function closeOverlay() {
         document.documentElement.style.overflow = "";
